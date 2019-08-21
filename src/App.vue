@@ -2,16 +2,19 @@
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
     <SideBar />
+    <List />
     <router-view/>
   </div>
 </template>
 
 <script>
 import SideBar from '@/components/SideBar'
+import List from '@/components/List'
 export default {
   name: 'App',
   components: {
-    SideBar
+    SideBar,
+    List
   }
 }
 </script>

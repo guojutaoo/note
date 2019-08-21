@@ -7,31 +7,50 @@
                 <font-awesome-icon icon="trash-alt" style="font-size:24px" id="icon-trash"/>
             </div>
             <div class="second-row">
-                <font-awesome-icon icon="plus-square" style="font-size:24px" id="icon-plus"/>
-                <input type="text" class="text">
+                <font-awesome-icon icon="plus-square" style="font-size:24px" id="icon-plus" @click="handleSubmit"/>
+                <input type="text" class="text" @change="handleChange" placeholder="..." v-model="add">
             </div>
-
         </form>
     </nav>
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Sunday</th>
-            </tr>
-            <tr>
-                <th>Monday</th>
-            </tr>
-        </tbody>
-    </table>
+    <Table />
 </div>
 </template>
 
 <script>
-
+import Table from '@/components/Table'
+export default {
+  name: 'List',
+  components: {Table},
+  data () {
+    return {
+      text: '',
+      msgs: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    }
+  },
+  methods: {
+    handleChange: function () {
+      this.text = this.add
+    },
+    handleSubmit: function () {
+      this.msgs.push(this.text)
+      console.log(this.msgs)
+    }
+  }
+}
 </script>
 
 <style scoped>
-
+.list{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: -940px;
+    margin-left: 250px;
+}
+nav{
+    background-color:#9b59b6;
+    color: #fff;
+}
 form{
     display: inline;
 }
@@ -47,9 +66,7 @@ form{
     margin-top: -25px;
     display: flex;
 }
-th{
-    text-align: left;
-}
+
 input{
     background: transparent;
     border-top: 0;
@@ -59,26 +76,15 @@ input{
     color: #fff;
     font-size: 20px;
     padding: 20px 0 0 0;
+    transition: 0.5s;
 }
-
-nav{
-    background-color:#9b59b6;
-    color: #fff;
+input:focus{
+    padding: 25px 0 0 0;
 }
-
 .icons{
     display:flex;
     flex-direction: column;
 }
-
-.list{
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    margin-top: -1030px;
-    margin-left: 250px;
-}
-
 #nav-list{
     justify-items: center;
     align-items: center;
