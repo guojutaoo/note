@@ -13,17 +13,20 @@ export default new Router({
     {
       path: '/',
       name: 'HelloWorld',
-      component: HelloWorld
+      component: HelloWorld,
+      props: true
     },
     {
       path: '/home',
       name: 'List',
-      component: List
+      component: List,
+      props: true
     },
     {
       path: '/content',
       name: 'Content',
-      component: Content
+      component: Content,
+      props: true
     }
   ]
 })
