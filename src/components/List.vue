@@ -12,7 +12,7 @@
             </div>
         </form>
     </nav>
-    <Table />
+    <Table :user-name="userName" ></Table>
 </div>
 </template>
 
@@ -24,7 +24,7 @@ export default {
   data () {
     return {
       text: '',
-      msgs: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+      userName: ['React.js unit testing', 'javascript book', 'HashMap principle', 'Red–black tree']
     }
   },
   methods: {
@@ -32,8 +32,10 @@ export default {
       this.text = this.add
     },
     handleSubmit: function () {
-      this.msgs.push(this.text)
-      console.log(this.msgs)
+      if (this.text.length < 1) {
+        return
+      }
+      this.userName.push(this.text)
     }
   }
 }
