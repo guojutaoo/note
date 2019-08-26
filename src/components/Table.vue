@@ -1,8 +1,8 @@
 <template>
       <table class="table">
         <tbody>
-            <tr v-for="msg in userName" v-bind:key="msg.id">
-                <th>{{msg}} <button class="btn btn-success" id="btn-up">Update</button> <button class="btn btn-danger">Delete</button></th>
+            <tr v-for="msg in userText" v-bind:key="msg.id">
+                <th>{{msg}} <button class="btn btn-success" id="btn-up">Update</button> <button class="btn btn-danger" @click="handleDelete(msg)">Delete</button></th>
             </tr>
         </tbody>
     </table>
@@ -11,13 +11,17 @@
 <script>
 export default {
   name: 'Table',
-  props: ['userName'],
+  props: ['userText'],
   data () {
     return {
       // localmsgs: this.msgs,
     }
   },
   methods: {
+    handleDelete: function (title) {
+      this.userText = this.userText.filter(text => text !== title)
+      console.log(this.userText)
+    }
   }
 }
 </script>

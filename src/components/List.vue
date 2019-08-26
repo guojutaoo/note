@@ -12,7 +12,7 @@
             </div>
         </form>
     </nav>
-    <Table :user-name="userName" ></Table>
+    <Table :user-text="userText" ref="my-child"></Table>
 </div>
 </template>
 
@@ -24,7 +24,7 @@ export default {
   data () {
     return {
       text: '',
-      userName: ['React.js unit testing', 'javascript book', 'HashMap principle', 'Red–black tree']
+      userText: ['React.js unit testing', 'javascript book', 'HashMap principle', 'Red–black tree']
     }
   },
   methods: {
@@ -35,7 +35,8 @@ export default {
       if (this.text.length < 1) {
         return
       }
-      this.userName.push(this.text)
+      this.userText.push(this.text)
+      this.text = ''
     }
   }
 }
