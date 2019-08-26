@@ -19,5 +19,6 @@ export default {
     background-image: linear-gradient(145deg, rgb(167, 167, 104), rgb(122, 223, 223), rgb(114, 163, 209));
     margin-top: -15px;
     min-height: 800px;
+    min-height: 635.5px;
 }
 </style>
