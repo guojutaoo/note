@@ -1,6 +1,6 @@
 # note
 
-> A Vue.js project
+> A Reminder implemented with Vue.js
 
 ## Build Setup
 
